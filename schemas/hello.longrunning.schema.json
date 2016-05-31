@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "hello.longrunning",
+  "anyOf": [
+    {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data2": {"$ref": "#/definitions/SmallInteger"},
+        "data1": {"$ref": "#/definitions/SmallInteger"}
+      },
+      "required": [
+        "data2",
+        "data1"
+      ]
+    },
+    {
+      "minItems": 2,
+      "maxItems": 2,
+      "type": "array",
+      "items": [
+        {"$ref": "#/definitions/SmallInteger"},
+        {"$ref": "#/definitions/SmallInteger"}
+      ]
+    }
+  ],
+  "definitions": {
+    "ShortString": {
+      "type": "string",
+      "maxLength": 4
+    },
+    "SmallInteger": {
+      "maximum": 5,
+      "type": "integer"
+    }
+  }
+}
